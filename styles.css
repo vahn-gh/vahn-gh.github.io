@@ -1,0 +1,576 @@
+:root {
+  --shell: #6b4d9e;
+  --shell-hi: #8f6fd0;
+  --shell-lo: #46306e;
+  --shell-deep: #2e1f4a;
+  --bezel: #241736;
+  --lcd: #d7d199;
+  --lcd-dim: #c3bd85;
+  --ink: #22240f;
+  --ink-mid: #5a5c33;
+  --ink-soft: #7d7f52;
+  --btn: #c4453e;
+  --btn-lo: #8e2f2a;
+  --led: #7ef0a8;
+  --room: #191228;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--room);
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    #2a1e45 0%,
+    var(--room) 60%
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 14px 56px;
+  font-family: 'VT323', ui-monospace, monospace;
+  color: var(--ink);
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
+}
+
+/* ---------- console shell ---------- */
+.console {
+  width: 100%;
+  max-width: 620px;
+  background: var(--shell);
+  border: 5px solid var(--shell-deep);
+  border-radius: 14px 14px 78px 14px;
+  padding: 18px 18px 22px;
+  box-shadow:
+    inset 0 5px 0 var(--shell-hi),
+    inset 0 -7px 0 var(--shell-lo),
+    0 14px 0 var(--shell-deep),
+    0 22px 40px rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 560px) {
+  .console {
+    border-radius: 10px 10px 52px 10px;
+    padding: 12px 12px 16px;
+  }
+  .screen {
+    height: 64vh;
+  }
+  .viewport {
+    font-size: 18px;
+    padding: 12px;
+  }
+  .ab button {
+    width: 46px;
+    height: 46px;
+  }
+  .dpad {
+    grid-template-columns: repeat(3, 30px);
+    grid-template-rows: repeat(3, 30px);
+  }
+}
+
+.rail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--shell-deep);
+  letter-spacing: 0.5px;
+}
+.rail .grooves {
+  flex: 1;
+  height: 7px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--shell-lo) 0 3px,
+    transparent 3px 8px
+  );
+}
+
+/* ---------- screen ---------- */
+.bezel {
+  background: var(--bezel);
+  border-radius: 8px 8px 26px 8px;
+  padding: 16px 14px 18px;
+  box-shadow:
+    inset 0 3px 0 #3b2a55,
+    inset 0 -3px 0 #120b1f;
+}
+
+.bezel-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #6d5b91;
+}
+.led {
+  width: 8px;
+  height: 8px;
+  background: var(--led);
+  box-shadow: 0 0 7px var(--led);
+  flex: none;
+}
+.bezel-top .spacer {
+  flex: 1;
+}
+
+.screen {
+  position: relative;
+  background: var(--lcd);
+  height: clamp(380px, 62vh, 500px);
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 3px #b4ae76,
+    inset 0 0 26px rgba(90, 92, 51, 0.35);
+}
+.screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(34, 36, 15, 0.11) 0 1px,
+    transparent 1px 3px
+  );
+  z-index: 5;
+}
+
+/* ---------- boot ---------- */
+.boot {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  background: var(--lcd);
+  padding: 20px;
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.boot.done {
+  display: none;
+}
+.boot b {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  display: block;
+  margin: 14px 0 10px;
+}
+.boot .cursor {
+  display: inline-block;
+  width: 9px;
+  height: 16px;
+  background: var(--ink);
+  vertical-align: -2px;
+  animation: blink 0.5s steps(1, end) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes flash {
+  0% {
+    transform: scaleY(0.01);
+    filter: brightness(2.4);
+  }
+  55% {
+    transform: scaleY(0.01);
+    filter: brightness(2.4);
+  }
+  70% {
+    transform: scaleY(1);
+    filter: brightness(1.7);
+  }
+  100% {
+    transform: scaleY(1);
+    filter: brightness(1);
+  }
+}
+.screen.powering {
+  animation: flash 0.5s steps(6, end) 1;
+}
+
+/* ---------- app ---------- */
+.app {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+}
+.app.on {
+  opacity: 1;
+}
+
+.statusbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  background: var(--ink);
+  color: var(--lcd);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.5px;
+  flex: none;
+}
+.statusbar .who {
+  flex: 1;
+}
+.statusbar .cell {
+  opacity: 0.75;
+}
+
+.tabs {
+  display: flex;
+  flex: none;
+  border-bottom: 3px solid var(--ink);
+  background: var(--lcd-dim);
+}
+.tabs button {
+  flex: 1;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 9px 2px;
+  border: 0;
+  border-right: 3px solid var(--ink);
+  background: transparent;
+  color: var(--ink-mid);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+.tabs button:last-child {
+  border-right: 0;
+}
+.tabs button[aria-selected='true'] {
+  background: var(--ink);
+  color: var(--lcd);
+}
+.tabs button:focus-visible {
+  outline: 3px solid var(--btn);
+  outline-offset: -3px;
+}
+
+.viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px 14px 20px;
+  font-size: 19px;
+  line-height: 1.3;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-mid) var(--lcd-dim);
+}
+.viewport::-webkit-scrollbar {
+  width: 11px;
+}
+.viewport::-webkit-scrollbar-track {
+  background: var(--lcd-dim);
+}
+.viewport::-webkit-scrollbar-thumb {
+  background: var(--ink-mid);
+  border: 2px solid var(--lcd-dim);
+}
+
+.panel {
+  display: none;
+}
+.panel.live {
+  display: block;
+}
+
+h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+h2 .tick {
+  color: var(--ink-soft);
+}
+
+p {
+  margin: 0 0 12px;
+  max-width: 64ch;
+}
+.dim {
+  color: var(--ink-mid);
+}
+
+.kv {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.kv dt {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding-top: 4px;
+  min-width: 74px;
+  color: var(--ink-mid);
+}
+.kv dd {
+  margin: 0;
+  flex: 1;
+  min-width: 150px;
+  word-break: break-word;
+}
+.kv a {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* job list */
+.joblist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.joblist li {
+  margin-bottom: 5px;
+}
+.joblist button {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  text-align: left;
+  background: var(--lcd-dim);
+  border: 0;
+  border-left: 7px solid var(--ink-soft);
+  padding: 9px 10px;
+  font-family: 'VT323', monospace;
+  font-size: 19px;
+  color: var(--ink);
+  cursor: pointer;
+}
+.joblist button:hover,
+.joblist button:focus-visible {
+  background: var(--ink);
+  color: var(--lcd);
+  border-left-color: var(--btn);
+  outline: none;
+}
+.joblist .co {
+  flex: 1;
+}
+.joblist .yr {
+  font-size: 16px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.detail {
+  display: none;
+}
+.detail.live {
+  display: block;
+}
+.back {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--lcd);
+  border: 0;
+  padding: 7px 9px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.back:focus-visible {
+  outline: 3px solid var(--btn);
+  outline-offset: 2px;
+}
+
+.meta {
+  font-size: 17px;
+  color: var(--ink-mid);
+  margin: -6px 0 12px;
+}
+
+ul.bul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.bul li {
+  position: relative;
+  padding-left: 17px;
+  margin-bottom: 9px;
+  max-width: 64ch;
+}
+ul.bul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  background: var(--ink-mid);
+}
+
+.stack {
+  margin-top: 12px;
+  padding-top: 9px;
+  border-top: 3px solid var(--ink-soft);
+  font-size: 17px;
+  color: var(--ink-mid);
+}
+
+.group {
+  margin-bottom: 15px;
+}
+.group h3 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  margin: 0 0 7px;
+  color: var(--ink-mid);
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.chips span {
+  background: var(--lcd-dim);
+  border-left: 5px solid var(--ink-soft);
+  padding: 3px 8px;
+  font-size: 17px;
+}
+
+/* ---------- controls ---------- */
+.brand {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 14px 2px 16px;
+  font-family: 'Press Start 2P', monospace;
+  color: var(--shell-deep);
+}
+.brand .big {
+  font-size: 13px;
+}
+.brand .small {
+  font-size: 7px;
+  color: var(--shell-lo);
+}
+
+.pad {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 34px);
+  grid-template-rows: repeat(3, 34px);
+  flex: none;
+}
+.dpad button {
+  background: var(--shell-deep);
+  border: 0;
+  color: var(--shell-hi);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: inset 0 3px 0 #48336f;
+}
+.dpad button:active {
+  box-shadow: inset 0 3px 0 #150e26;
+}
+.dpad button:focus-visible {
+  outline: 3px solid var(--led);
+  outline-offset: -3px;
+}
+.dpad .nub {
+  background: var(--shell-deep);
+  box-shadow: inset 0 0 0 4px #3a2860;
+}
+.dpad .blank {
+  background: transparent;
+}
+
+.ab {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex: none;
+}
+.ab button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--btn);
+  color: #ffdede;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 var(--btn-lo);
+}
+.ab button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--btn-lo);
+}
+.ab button:focus-visible {
+  outline: 3px solid var(--led);
+  outline-offset: 3px;
+}
+
+.hint {
+  margin: 18px 2px 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  line-height: 2;
+  color: var(--shell-lo);
+}
+.hint kbd {
+  background: var(--shell-deep);
+  color: var(--shell-hi);
+  padding: 2px 4px;
+}
+
+.sound {
+  background: var(--shell-deep);
+  border: 0;
+  color: var(--shell-hi);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+.sound:focus-visible {
+  outline: 3px solid var(--led);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen.powering {
+    animation: none;
+  }
+  .boot .cursor {
+    animation: none;
+  }
+}

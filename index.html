@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ivan Yurkin — RN-3000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <main class="console">
+
+    <div class="rail">
+      <span>RN-3000</span>
+      <span class="grooves"></span>
+      <button class="sound" id="sound" aria-pressed="true">SOUND ON</button>
+    </div>
+
+    <div class="bezel">
+      <div class="bezel-top">
+        <span class="led" aria-hidden="true"></span>
+        <span>POWER</span>
+        <span class="spacer"></span>
+        <span>DOT MATRIX WITH STEREO SOUND</span>
+      </div>
+
+      <div class="screen" id="screen">
+
+        <div class="boot" id="boot">
+          <span id="bootline"></span><span class="cursor"></span>
+        </div>
+
+        <div class="app" id="app">
+          <div class="statusbar">
+            <span class="who">IVAN YURKIN</span>
+            <span class="cell" id="crumb">PROFILE</span>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Sections">
+            <button role="tab" aria-selected="true" aria-controls="p-profile" id="t-profile">PROFILE</button>
+            <button role="tab" aria-selected="false" aria-controls="p-work" id="t-work">WORK</button>
+            <button role="tab" aria-selected="false" aria-controls="p-skills" id="t-skills">SKILLS</button>
+            <button role="tab" aria-selected="false" aria-controls="p-school" id="t-school">SCHOOL</button>
+          </div>
+
+          <div class="viewport" id="viewport">
+
+            <!-- PROFILE -->
+            <section class="panel live" id="p-profile" role="tabpanel" aria-labelledby="t-profile">
+              <h2>Software Engineer <span class="tick">//</span> Mobile &amp; Web</h2>
+              <p>React Native engineer with 5 years shipping production mobile apps, including 3+ years at a
+                fintech/crypto platform handling regulated banking infrastructure, where I built the app's compliance
+                system and navigation architecture.</p>
+              <p>Experience designing apps from scratch, writing native iOS modules, and working on legacy-to-modern
+                migrations across multiple companies. Background also spans web (React, Vue, Angular) and backend
+                (Django, Python) from university and personal projects.</p>
+              <dl class="kv">
+                <dt>EMAIL</dt>
+                <dd><a href="mailto:yurkin.ivan5456@gmail.com">yurkin.ivan5456@gmail.com</a></dd>
+              </dl>
+              <dl class="kv">
+                <dt>LINKEDIN</dt>
+                <dd><a href="https://www.linkedin.com/in/ivan-yurkin-187039220" target="_blank" rel="noopener">linkedin.com/in/ivan-yurkin</a></dd>
+              </dl>
+              <dl class="kv">
+                <dt>SPEAKS</dt>
+                <dd>Russian (native), English (upper intermediate)</dd>
+              </dl>
+              <dl class="kv">
+                <dt>LEARNING</dt>
+                <dd>Unity Engine, Godot Engine, C++ (JSI), Rust, Go</dd>
+              </dl>
+            </section>
+
+            <!-- WORK -->
+            <section class="panel" id="p-work" role="tabpanel" aria-labelledby="t-work">
+              <div id="worklist">
+                <h2>Select a role</h2>
+                <ul class="joblist" id="joblist"></ul>
+              </div>
+              <div class="detail" id="workdetail">
+                <button class="back" id="back">&lt; BACK</button>
+                <h2 id="d-title"></h2>
+                <div class="meta" id="d-meta"></div>
+                <ul class="bul" id="d-bullets"></ul>
+                <div class="stack" id="d-stack"></div>
+              </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="panel" id="p-skills" role="tabpanel" aria-labelledby="t-skills">
+              <h2>Skills</h2>
+              <div class="group">
+                <h3>LANGUAGES</h3>
+                <div class="chips">
+                  <span>TypeScript</span><span>JavaScript</span><span>Python</span>
+                  <span>Kotlin</span><span>Swift</span><span>SQL</span>
+                </div>
+              </div>
+              <div class="group">
+                <h3>FRONTEND / MOBILE</h3>
+                <div class="chips">
+                  <span>React</span><span>React Native</span><span>Redux Toolkit</span>
+                  <span>MobX</span><span>GraphQL</span><span>Reanimated</span>
+                  <span>Gesture Handler</span><span>Unistyles</span><span>Realm</span><span>HTML</span>
+                  <span>CSS</span><span>SCSS</span><span>Styled Components</span>
+                </div>
+              </div>
+              <div class="group">
+                <h3>NATIVE / INFRA</h3>
+                <div class="chips">
+                  <span>Native iOS modules (Swift)</span><span>Fastlane</span>
+                  <span>GitLab CI/CD</span><span>Maestro E2E</span><span>Jest</span>
+                </div>
+              </div>
+              <div class="group">
+                <h3>BACKEND / DATA</h3>
+                <div class="chips">
+                  <span>Python</span><span>Django</span><span>PostgreSQL</span>
+                  <span>SQL</span><span>Docker</span>
+                </div>
+              </div>
+              <div class="group">
+                <h3>TOOLS</h3>
+                <div class="chips">
+                  <span>VS Code</span><span>IntelliJ IDEA</span><span>Android Studio</span>
+                  <span>Xcode</span><span>Flipper</span><span>Figma</span>
+                  <span>Notion</span><span>Linear</span><span>Obsidian</span><span>Slack</span>
+                </div>
+              </div>
+              <div class="group">
+                <h3>AI TOOLS</h3>
+                <div class="chips">
+                  <span>Claude CLI</span><span>Ollama local models</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- SCHOOL -->
+            <section class="panel" id="p-school" role="tabpanel" aria-labelledby="t-school">
+              <h2>Moscow Polytech</h2>
+              <div class="meta">BSc, Web Technologies &middot; 2019&ndash;2023, Moscow</div>
+              <ul class="bul">
+                <li>Fundamentals of Computer Science, UX, Business &amp; Marketing, Tech Law</li>
+                <li>Completed Cisco Networking Academy</li>
+                <li>Machine learning basics</li>
+                <li>Built numerous small and medium projects using React, Vue, Angular, Kotlin, Python, Django, Docker,
+                  SQL, and PostgreSQL</li>
+              </ul>
+            </section>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="brand">
+      <span class="big">@vahn</span>
+      <span class="small">REACT NATIVE</span>
+    </div>
+
+    <div class="pad">
+      <div class="dpad" aria-hidden="true">
+        <span class="blank"></span>
+        <button data-dir="up">&#9650;</button>
+        <span class="blank"></span>
+        <button data-dir="left">&#9664;</button>
+        <span class="nub"></span>
+        <button data-dir="right">&#9654;</button>
+        <span class="blank"></span>
+        <button data-dir="down">&#9660;</button>
+        <span class="blank"></span>
+      </div>
+      <div class="ab">
+        <button id="btnB" type="button">B</button>
+        <button id="btnA" type="button">A</button>
+      </div>
+    </div>
+
+    <p class="hint">
+      <kbd>&#9664;</kbd> <kbd>&#9654;</kbd> switch tabs &middot;
+      <kbd>&#9650;</kbd> <kbd>&#9660;</kbd> scroll &middot;
+      <kbd>A</kbd> open role &middot; <kbd>B</kbd> back
+    </p>
+
+  </main>
+
+  <script src="constants.js"></script>
+  <script src="script.js"></script>
+  <script src="sound.js"></script>
+  <script src="job-list.js"></script>
+  <script src="tabs.js"></script>
+  <script src="dpad-keyboard.js"></script>
+  <script src="boot.js"></script>
+</body>
+
+</html>
