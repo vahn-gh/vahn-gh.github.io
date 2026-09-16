@@ -1,18 +1,18 @@
 :root {
-  --shell: #6b4d9e;
-  --shell-hi: #8f6fd0;
-  --shell-lo: #46306e;
-  --shell-deep: #2e1f4a;
-  --bezel: #241736;
-  --lcd: #d7d199;
-  --lcd-dim: #c3bd85;
-  --ink: #22240f;
-  --ink-mid: #5a5c33;
-  --ink-soft: #7d7f52;
-  --btn: #c4453e;
-  --btn-lo: #8e2f2a;
-  --led: #7ef0a8;
-  --room: #191228;
+  --shell: #a17d45;
+  --shell-hi: #c9a46b;
+  --shell-lo: #7a5d32;
+  --shell-deep: #40312f;
+  --bezel: #2b201e;
+  --lcd: #ead7de;
+  --lcd-dim: #d8bec7;
+  --ink: #40312f;
+  --ink-mid: #5c2339;
+  --ink-soft: #a17d45;
+  --btn: #5c2339;
+  --btn-lo: #3b1626;
+  --led: #e0b26b;
+  --room: #201715;
 }
 
 * {
@@ -29,7 +29,7 @@ body {
   background: var(--room);
   background-image: radial-gradient(
     circle at 50% 0%,
-    #2a1e45 0%,
+    #2b1f1d 0%,
     var(--room) 60%
   );
   min-height: 100vh;
@@ -107,8 +107,8 @@ body {
   border-radius: 8px 8px 26px 8px;
   padding: 16px 14px 18px;
   box-shadow:
-    inset 0 3px 0 #3b2a55,
-    inset 0 -3px 0 #120b1f;
+    inset 0 3px 0 #5c4237,
+    inset 0 -3px 0 #140f0d;
 }
 
 .bezel-top {
@@ -118,7 +118,7 @@ body {
   margin-bottom: 10px;
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
-  color: #6d5b91;
+  color: #8a6f5a;
 }
 .led {
   width: 8px;
@@ -137,8 +137,8 @@ body {
   height: clamp(380px, 62vh, 500px);
   overflow: hidden;
   box-shadow:
-    inset 0 0 0 3px #b4ae76,
-    inset 0 0 26px rgba(90, 92, 51, 0.35);
+    inset 0 0 0 3px #c7aab3,
+    inset 0 0 26px rgba(92, 35, 57, 0.35);
 }
 .screen::after {
   content: '';
@@ -147,7 +147,7 @@ body {
   pointer-events: none;
   background: repeating-linear-gradient(
     0deg,
-    rgba(34, 36, 15, 0.11) 0 1px,
+    rgba(64, 49, 47, 0.11) 0 1px,
     transparent 1px 3px
   );
   z-index: 5;
@@ -427,14 +427,6 @@ ul.bul li::before {
   background: var(--ink-mid);
 }
 
-.stack {
-  margin-top: 12px;
-  padding-top: 9px;
-  border-top: 3px solid var(--ink-soft);
-  font-size: 17px;
-  color: var(--ink-mid);
-}
-
 .group {
   margin-bottom: 15px;
 }
@@ -495,10 +487,10 @@ ul.bul li::before {
   font-size: 15px;
   line-height: 1;
   cursor: pointer;
-  box-shadow: inset 0 3px 0 #48336f;
+  box-shadow: inset 0 3px 0 #6b4d33;
 }
 .dpad button:active {
-  box-shadow: inset 0 3px 0 #150e26;
+  box-shadow: inset 0 3px 0 #1c1412;
 }
 .dpad button:focus-visible {
   outline: 3px solid var(--led);
@@ -506,7 +498,7 @@ ul.bul li::before {
 }
 .dpad .nub {
   background: var(--shell-deep);
-  box-shadow: inset 0 0 0 4px #3a2860;
+  box-shadow: inset 0 0 0 4px #5c4237;
 }
 .dpad .blank {
   background: transparent;
@@ -524,7 +516,7 @@ ul.bul li::before {
   border-radius: 50%;
   border: 0;
   background: var(--btn);
-  color: #ffdede;
+  color: #f2dde3;
   font-family: 'Press Start 2P', monospace;
   font-size: 11px;
   cursor: pointer;
