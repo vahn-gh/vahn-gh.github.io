@@ -3,6 +3,11 @@
 const scrollOffset = 90
 
 function press(direction) {
+  if (TABS[tabIndex] === 'game') {
+    gameInput(direction)
+    return
+  }
+
   if (direction === 'left') {
     setTab(tabIndex - 1)
   } else if (direction === 'right') {
@@ -26,6 +31,11 @@ function press(direction) {
 })
 
 function actionA() {
+  if (TABS[tabIndex] === 'game') {
+    gameAction()
+    return
+  }
+
   if (TABS[tabIndex] !== 'work') {
     setTab(1)
     return
@@ -45,7 +55,9 @@ function actionA() {
 }
 $('btnA').addEventListener('click', actionA)
 $('btnB').addEventListener('click', () => {
-  if (detailWrap.classList.contains('live')) {
+  if (TABS[tabIndex] === 'game') {
+    gameBack()
+  } else if (detailWrap.classList.contains('live')) {
     closeJob()
   } else {
     beep(300, 70)
@@ -74,7 +86,9 @@ document.addEventListener('keydown', e => {
   } else if (e.key === 'a' || e.key === 'A') {
     actionA()
   } else if (e.key === 'b' || e.key === 'B' || e.key === 'Escape') {
-    if (detailWrap.classList.contains('live')) {
+    if (TABS[tabIndex] === 'game') {
+      gameBack()
+    } else if (detailWrap.classList.contains('live')) {
       closeJob()
     }
   }

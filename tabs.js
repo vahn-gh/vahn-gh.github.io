@@ -13,6 +13,12 @@ function setTab(i, isQuiet) {
     closeJobSilently()
   }
 
+  if (TABS[tabIndex] === 'game') {
+    gameActivate()
+  } else {
+    gameDeactivate()
+  }
+
   crumb.textContent = TABS[tabIndex].toUpperCase()
   viewport.scrollTop = 0
 

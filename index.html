@@ -46,6 +46,7 @@
             <button role="tab" aria-selected="false" aria-controls="p-work" id="t-work">WORK</button>
             <button role="tab" aria-selected="false" aria-controls="p-skills" id="t-skills">SKILLS</button>
             <button role="tab" aria-selected="false" aria-controls="p-school" id="t-school">SCHOOL</button>
+            <button role="tab" aria-selected="false" aria-controls="p-game" id="t-game">TETRIS</button>
           </div>
 
           <div class="viewport" id="viewport">
@@ -192,6 +193,28 @@
               </ul>
             </section>
 
+            <section class="panel" id="p-game" role="tabpanel" aria-labelledby="t-game">
+              <div class="tetris-wrap">
+                <canvas id="tetris-canvas" width="180" height="320"></canvas>
+                <div class="tetris-info">
+                  <div class="tetris-stat">
+                    <span>SCORE</span>
+                    <b id="t-score">0</b>
+                  </div>
+                  <div class="tetris-stat">
+                    <span>LINES</span>
+                    <b id="t-lines">0</b>
+                  </div>
+                  <div class="tetris-stat">
+                    <span>NEXT</span>
+                    <canvas id="tetris-next" width="60" height="60"></canvas>
+                  </div>
+                </div>
+              </div>
+              <p class="dim">A: hard drop / start &middot; UP: rotate &middot; LEFT/RIGHT: move &middot; DOWN:
+                soft drop &middot; B: pause</p>
+            </section>
+
           </div>
         </div>
       </div>
@@ -232,6 +255,7 @@
   <script src="script.js"></script>
   <script src="sound.js"></script>
   <script src="job-list.js"></script>
+  <script src="tetris.js"></script>
   <script src="tabs.js"></script>
   <script src="dpad-keyboard.js"></script>
   <script src="boot.js"></script>

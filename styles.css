@@ -427,6 +427,41 @@ ul.bul li::before {
   background: var(--ink-mid);
 }
 
+.tetris-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+#tetris-canvas {
+  background: var(--lcd-dim);
+  border: 3px solid var(--ink);
+  image-rendering: pixelated;
+}
+.tetris-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tetris-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tetris-stat span {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink-mid);
+}
+.tetris-stat b {
+  font-size: 22px;
+}
+#tetris-next {
+  background: var(--lcd-dim);
+  border: 3px solid var(--ink-soft);
+}
+
 .group {
   margin-bottom: 15px;
 }
