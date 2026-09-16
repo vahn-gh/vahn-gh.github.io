@@ -13,7 +13,7 @@ function setTab(i, isQuiet) {
     closeJobSilently()
   }
 
-  if (TABS[tabIndex] === 'game') {
+  if (TABS[tabIndex] === 'tetris') {
     gameActivate()
   } else {
     gameDeactivate()

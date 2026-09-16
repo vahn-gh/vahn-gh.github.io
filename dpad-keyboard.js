@@ -3,7 +3,7 @@
 const scrollOffset = 90
 
 function press(direction) {
-  if (TABS[tabIndex] === 'game') {
+  if (TABS[tabIndex] === 'tetris') {
     gameInput(direction)
     return
   }
@@ -31,7 +31,7 @@ function press(direction) {
 })
 
 function actionA() {
-  if (TABS[tabIndex] === 'game') {
+  if (TABS[tabIndex] === 'tetris') {
     gameAction()
     return
   }
@@ -55,7 +55,7 @@ function actionA() {
 }
 $('btnA').addEventListener('click', actionA)
 $('btnB').addEventListener('click', () => {
-  if (TABS[tabIndex] === 'game') {
+  if (TABS[tabIndex] === 'tetris') {
     gameBack()
   } else if (detailWrap.classList.contains('live')) {
     closeJob()
@@ -86,7 +86,7 @@ document.addEventListener('keydown', e => {
   } else if (e.key === 'a' || e.key === 'A') {
     actionA()
   } else if (e.key === 'b' || e.key === 'B' || e.key === 'Escape') {
-    if (TABS[tabIndex] === 'game') {
+    if (TABS[tabIndex] === 'tetris') {
       gameBack()
     } else if (detailWrap.classList.contains('live')) {
       closeJob()

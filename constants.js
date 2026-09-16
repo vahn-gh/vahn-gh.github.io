@@ -107,7 +107,7 @@ const JOBS = [
   },
 ]
 
-const TABS = ['profile', 'work', 'skills', 'school', 'game']
+const TABS = ['profile', 'work', 'skills', 'school', 'tetris']
 
 const BOOT_TEXT = 'RN-3000 BOOT OK\nLOADING CV...\n'
 const NAME_HTML = '<b>IVAN YURKIN</b>React Native engineer'
