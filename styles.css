@@ -400,6 +400,22 @@ p {
   outline-offset: 2px;
 }
 
+.cvbtn {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--lcd) !important;
+  border: 0;
+  padding: 6px 8px;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+.cvbtn:focus-visible {
+  outline: 3px solid var(--btn);
+  outline-offset: 2px;
+}
+
 .meta {
   font-size: 17px;
   color: var(--ink-mid);
