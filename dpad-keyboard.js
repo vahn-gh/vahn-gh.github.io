@@ -27,6 +27,7 @@ function press(direction) {
 ;[...document.querySelectorAll('.dpad button')].forEach(b => {
   b.addEventListener('click', () => {
     press(b.dataset.dir)
+    b.blur()
   })
 })
 
@@ -83,8 +84,9 @@ document.addEventListener('keydown', e => {
   } else if (e.key === 'ArrowDown') {
     press('down')
     e.preventDefault()
-  } else if (e.key === 'a' || e.key === 'A') {
+  } else if (e.key === 'a' || e.key === 'A' || e.key === 'Enter') {
     actionA()
+    e.preventDefault()
   } else if (e.key === 'b' || e.key === 'B' || e.key === 'Escape') {
     if (TABS[tabIndex] === 'tetris') {
       gameBack()
