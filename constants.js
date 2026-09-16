@@ -111,3 +111,10 @@ const TABS = ['profile', 'work', 'skills', 'school', 'tetris']
 
 const BOOT_TEXT = 'RN-3000 BOOT OK\nLOADING CV...\n'
 const NAME_HTML = '<b>IVAN YURKIN</b>React Native engineer'
+
+const FACE_BITMAP = [
+  [0, 1, 0, 1, 0],
+  [0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 1],
+  [0, 1, 1, 1, 0],
+]

@@ -1,9 +1,14 @@
 'use strict'
 
+const POWER_ON_DURATION = 500
+const FACE_DURATION = 900
+
 const reduce =
   window.matchMedia &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const screenEl = $('screen')
+const splash = $('splash')
+const face = $('face')
 const boot = $('boot')
 const app = $('app')
 
@@ -12,10 +17,17 @@ function finishBoot() {
   app.classList.add('on')
 }
 
-if (reduce) {
-  finishBoot()
-} else {
-  screenEl.classList.add('powering')
+function renderFace() {
+  FACE_BITMAP.forEach(row => {
+    row.forEach(px => {
+      const cell = document.createElement('i')
+      if (px) cell.classList.add('on')
+      face.appendChild(cell)
+    })
+  })
+}
+
+function typeBootText() {
   const line = $('bootline')
 
   let i = 0
@@ -34,12 +46,26 @@ if (reduce) {
     beep(520, 90)
   }, 250)
 
-  // safety: never leave the boot screen stuck
   setTimeout(() => {
     if (!app.classList.contains('on')) {
       finishBoot()
     }
   }, 4000)
+}
+
+if (reduce) {
+  finishBoot()
+} else {
+  screenEl.classList.add('powering')
+
+  setTimeout(() => {
+    renderFace()
+
+    setTimeout(() => {
+      splash.classList.add('done')
+      typeBootText()
+    }, FACE_DURATION)
+  }, POWER_ON_DURATION)
 }
 
 setTab(0, true)
