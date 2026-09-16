@@ -3,7 +3,7 @@
 const scrollOffset = 90
 
 function press(direction) {
-  if (TABS[tabIndex] === 'tetris') {
+  if (TABS[tabIndex] === 'tetris' && tetrisGame.isActive()) {
     gameInput(direction)
     return
   }
