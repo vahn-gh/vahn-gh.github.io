@@ -21,7 +21,6 @@ const JOBS = [
       'Built UI and API integration for Contacts, Round-up purchases, Automations, Earn, Price Alerts and other in-app features',
       'Worked in a small frontend team with daily code review in both directions, and with backend on GraphQL schema design across most features above',
     ],
-    stack: '',
   },
   {
     id: 'porttie',
@@ -40,7 +39,6 @@ const JOBS = [
       'Reviewed designs with the team in Figma before implementation and contributed UX changes',
       'Set up react-native-appmetrica-yandex analytics and Sentry crash reporting',
     ],
-    stack: '',
   },
   {
     id: 'tap',
@@ -62,8 +60,6 @@ const JOBS = [
       'Helped with Firebase Cloud Messaging (push notifications), deeplinking, and analytics',
       'Worked with Gatsby based landing website and GraphQL',
     ],
-    stack:
-      'Stack: React Native, Reanimated, Gesture Handler, Firebase, MobX, TypeScript',
   },
   {
     id: 'povoenke',
@@ -80,7 +76,6 @@ const JOBS = [
       'Mentored a junior developer - code review, written feedback, and pairing calls',
       'Rebuilt UI for a full app redesign (new Figma design system) across Buildings, Calculator, and other modules, closing out with a Buildings redesign',
     ],
-    stack: 'Stack: React Native, MobX, TypeScript, Realm',
   },
   {
     id: 'maff',
@@ -94,7 +89,6 @@ const JOBS = [
       'Designed game concept and project architecture',
       'Contributed to park integration in Decentraland',
     ],
-    stack: '',
   },
   {
     id: 'fizruk',
@@ -110,7 +104,6 @@ const JOBS = [
       'Built teacher-facing personal account for managing students',
       'Coached junior developers',
     ],
-    stack: 'Stack: React, TypeScript, MobX, Styled Components',
   },
 ]
 

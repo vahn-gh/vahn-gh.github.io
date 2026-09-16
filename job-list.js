@@ -44,9 +44,6 @@ function openJob(id) {
     ul.appendChild(li)
   })
 
-  const st = $('d-stack')
-  st.textContent = job.stack
-  st.style.display = job.stack ? 'block' : 'none'
   listWrap.style.display = 'none'
   detailWrap.classList.add('live')
   crumb.textContent = job.co.toUpperCase()
