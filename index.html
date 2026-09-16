@@ -67,6 +67,7 @@
             <button role="tab" aria-selected="false" aria-controls="p-skills" id="t-skills">SKILLS</button>
             <button role="tab" aria-selected="false" aria-controls="p-school" id="t-school">SCHOOL</button>
             <button role="tab" aria-selected="false" aria-controls="p-tetris" id="t-tetris">TETRIS</button>
+            <button role="tab" aria-selected="false" aria-controls="p-more" id="t-more">MORE</button>
           </div>
 
           <div class="viewport" id="viewport">
@@ -74,9 +75,9 @@
             <!-- PROFILE -->
             <section class="panel live" id="p-profile" role="tabpanel" aria-labelledby="t-profile">
               <h2>Software Engineer <span class="tick">//</span> Mobile &amp; Web</h2>
-              <p>React Native engineer with 5 years shipping production mobile apps, including 3+ years at a
-                fintech/crypto platform handling regulated banking infrastructure, where I built the app's compliance
-                system and navigation architecture.</p>
+              <p>React Native engineer with 5+ years of experience, 3 of which in a crypto/fintech company building
+                banking features such as compliance, IBAN payments, card issuance, native modules, and core app
+                architecture.</p>
               <p>Experience designing apps from scratch, writing native iOS modules, and working on legacy-to-modern
                 migrations across multiple companies. Background also spans web (React, Vue, Angular) and backend
                 (Django, Python) from university and personal projects.</p>
@@ -112,7 +113,7 @@
             <section class="panel" id="p-work" role="tabpanel" aria-labelledby="t-work">
               <div id="worklist">
                 <h2>Select a role</h2>
-                <ul class="joblist" id="joblist"></ul>
+                <ul class="itemlist" id="joblist"></ul>
               </div>
               <div class="detail" id="workdetail">
                 <button class="back" id="back">&lt; BACK</button>
@@ -244,6 +245,19 @@
                 soft drop &middot; B: pause</p>
             </section>
 
+            <!-- MORE -->
+            <section class="panel" id="p-more" role="tabpanel" aria-labelledby="t-more">
+              <div id="morelist-wrap">
+                <h2>Unfiltered thoughts</h2>
+                <ul class="itemlist" id="morelist"></ul>
+              </div>
+              <div class="detail" id="moredetail">
+                <button class="back" id="backmore">&lt; BACK</button>
+                <h2 id="m-title"></h2>
+                <div id="m-body"></div>
+              </div>
+            </section>
+
           </div>
         </div>
       </div>
@@ -282,6 +296,7 @@
   <script src="script.js"></script>
   <script src="sound.js"></script>
   <script src="job-list.js"></script>
+  <script src="more-list.js"></script>
   <script src="tetris.js"></script>
   <script src="tabs.js"></script>
   <script src="dpad-keyboard.js"></script>

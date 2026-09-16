@@ -364,16 +364,16 @@ p {
   text-decoration: underline;
 }
 
-/* job list */
-.joblist {
+/* item list (work roles, more topics) */
+.itemlist {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.joblist li {
+.itemlist li {
   margin-bottom: 5px;
 }
-.joblist button {
+.itemlist button {
   width: 100%;
   display: flex;
   align-items: baseline;
@@ -388,17 +388,17 @@ p {
   color: var(--ink);
   cursor: pointer;
 }
-.joblist button:hover,
-.joblist button:focus-visible {
+.itemlist button:hover,
+.itemlist button:focus-visible {
   background: var(--ink);
   color: var(--lcd);
   border-left-color: var(--btn);
   outline: none;
 }
-.joblist .co {
+.itemlist .co {
   flex: 1;
 }
-.joblist .yr {
+.itemlist .yr {
   font-size: 16px;
   opacity: 0.75;
   white-space: nowrap;
