@@ -338,6 +338,7 @@ p {
 }
 .dim {
   color: var(--ink-mid);
+  white-space: pre-line;
 }
 
 .kv {
