@@ -77,34 +77,6 @@ const JOBS = [
       'Rebuilt UI for a full app redesign (new Figma design system) across Buildings, Calculator, and other modules, closing out with a Buildings redesign',
     ],
   },
-  {
-    id: 'maff',
-    co: 'Maff Metaverse',
-    role: 'Frontend Lead Developer',
-    yr: '2021',
-    dates: 'Nov 2021 - Dec 2021 (university project)',
-    about: 'Metaverse development company.',
-    bullets: [
-      'Set up team workflow and managed work in Trello',
-      'Designed game concept and project architecture',
-      'Contributed to park integration in Decentraland',
-    ],
-  },
-  {
-    id: 'fizruk',
-    co: 'Fizruk',
-    role: 'Frontend Lead Developer',
-    yr: '2020-2022',
-    dates: 'Jan 2020 - Dec 2022 (university project)',
-    about:
-      'Management system for the Department of Physical Education at Moscow Polytech University.',
-    bullets: [
-      'Led the frontend team',
-      'Built student-facing personal account with viewing features',
-      'Built teacher-facing personal account for managing students',
-      'Coached junior developers',
-    ],
-  },
 ]
 
 const MORE_TOPICS = [

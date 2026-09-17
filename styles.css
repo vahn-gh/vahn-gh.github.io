@@ -445,7 +445,9 @@ p {
 .meta {
   font-size: 17px;
   color: var(--ink-mid);
-  margin: -6px 0 12px;
+}
+.meta.desc {
+  font-style: italic;
 }
 
 ul.bul {
@@ -506,6 +508,9 @@ ul.bul li::before {
 
 .group {
   margin-bottom: 15px;
+}
+.uni-projects {
+  margin-top: 18px;
 }
 .group h3 {
   font-family: 'Press Start 2P', monospace;
