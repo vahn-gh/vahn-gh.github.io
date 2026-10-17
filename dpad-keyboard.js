@@ -38,7 +38,7 @@ function actionA() {
   }
 
   if (TABS[tabIndex] !== 'work') {
-    setTab(1)
+    setTab(TABS.indexOf('work'))
     return
   }
 
@@ -60,8 +60,6 @@ $('btnB').addEventListener('click', () => {
     gameBack()
   } else if (detailWrap.classList.contains('live')) {
     closeJob()
-  } else if (moreDetailWrap.classList.contains('live')) {
-    closeMoreTopic()
   } else {
     beep(300, 70)
   }
@@ -94,8 +92,6 @@ document.addEventListener('keydown', e => {
       gameBack()
     } else if (detailWrap.classList.contains('live')) {
       closeJob()
-    } else if (moreDetailWrap.classList.contains('live')) {
-      closeMoreTopic()
     }
   }
 })

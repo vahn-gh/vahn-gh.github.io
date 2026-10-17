@@ -365,7 +365,7 @@ p {
   text-decoration: underline;
 }
 
-/* item list (work roles, more topics) */
+/* item list (work roles) */
 .itemlist {
   list-style: none;
   margin: 0;
@@ -517,6 +517,12 @@ ul.bul li::before {
   font-size: 7px;
   margin: 0 0 7px;
   color: var(--ink-mid);
+}
+#p-projects .group h3 {
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: normal;
+  margin: 0;
 }
 .chips {
   display: flex;
