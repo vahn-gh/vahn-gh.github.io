@@ -328,10 +328,6 @@ h2 {
   margin: 0 0 12px;
   line-height: 1.5;
 }
-h2 .tick {
-  color: var(--ink-soft);
-}
-
 p {
   margin: 0 0 12px;
   max-width: 64ch;
@@ -461,6 +457,9 @@ ul.bul li {
   margin-bottom: 9px;
   max-width: 64ch;
 }
+ul.bul ul.bul {
+  margin-top: 9px;
+}
 ul.bul li::before {
   content: '';
   position: absolute;
@@ -508,9 +507,6 @@ ul.bul li::before {
 
 .group {
   margin-bottom: 15px;
-}
-.uni-projects {
-  margin-top: 18px;
 }
 .group h3 {
   font-family: 'Press Start 2P', monospace;

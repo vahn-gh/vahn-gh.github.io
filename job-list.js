@@ -25,6 +25,24 @@ JOBS.forEach(job => {
   jobList.appendChild(createJobListItem(job))
 })
 
+function appendBullets(ul, bullets) {
+  bullets.forEach(bullet => {
+    const li = document.createElement('li')
+
+    if (typeof bullet === 'string') {
+      li.textContent = bullet
+    } else {
+      const nested = document.createElement('ul')
+      nested.className = 'bul'
+      li.textContent = bullet.text
+      appendBullets(nested, bullet.bullets)
+      li.appendChild(nested)
+    }
+
+    ul.appendChild(li)
+  })
+}
+
 function openJob(id) {
   const job = JOBS.find(j => j.id === id)
 
@@ -37,12 +55,7 @@ function openJob(id) {
 
   const ul = $('d-bullets')
   ul.innerHTML = ''
-
-  job.bullets.forEach(t => {
-    const li = document.createElement('li')
-    li.textContent = t
-    ul.appendChild(li)
-  })
+  appendBullets(ul, job.bullets)
 
   listWrap.style.display = 'none'
   detailWrap.classList.add('live')
